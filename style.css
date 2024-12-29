@@ -1,0 +1,5 @@
+/* Add a border to the console with some margin */
+body {
+  margin: 15px;
+  border: 2px solid gray;
+}

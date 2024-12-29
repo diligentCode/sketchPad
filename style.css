@@ -1,5 +1,26 @@
-/* Add a border to the console with some margin */
+* {
+  border: 1px solid red;
+}
+
 body {
+  text-align: center;
+}
+/* Add a border to the console with some margin */
+.sketchPad {
   margin: 15px;
   border: 2px solid gray;
+  margin: 30vw;
+  margin-top: 0;
+}
+
+.console {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  border: 2px solid gray;
+}
+
+.sketch-canvas {
+  width: 100%;
+  aspect-ratio: 1/1;
 }

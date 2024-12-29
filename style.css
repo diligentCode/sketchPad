@@ -23,4 +23,12 @@ body {
 .sketch-canvas {
   width: 100%;
   aspect-ratio: 1/1;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.cell {
+  box-sizing: border-box;
+  border: 1px solid black;
 }

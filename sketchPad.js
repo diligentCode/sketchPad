@@ -3,6 +3,7 @@ let backgroundColor = "black";
 //Select buttons and input value
 const inputGrid = document.querySelector("#grid-input");
 const sketchCanvas = document.querySelector(".sketch-canvas");
+const colorInput = document.querySelector("#color-input");
 
 //Handling input event
 inputGrid.addEventListener("keydown", (e) => {
@@ -47,3 +48,8 @@ function createGrid(gridSize) {
     }
   }
 }
+
+//Selecting a color
+colorInput.addEventListener("input", () => {
+  backgroundColor = colorInput.value;
+});

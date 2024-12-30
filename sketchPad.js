@@ -4,6 +4,7 @@ let backgroundColor = "black";
 const inputGrid = document.querySelector("#grid-input");
 const sketchCanvas = document.querySelector(".sketch-canvas");
 const colorInput = document.querySelector("#color-input");
+const clearGrid = document.querySelector(".clear");
 
 //Handling input event
 inputGrid.addEventListener("keydown", (e) => {
@@ -52,4 +53,12 @@ function createGrid(gridSize) {
 //Selecting a color
 colorInput.addEventListener("input", () => {
   backgroundColor = colorInput.value;
+});
+
+//Clear button event
+clearGrid.addEventListener("click", () => {
+  const cell = document.querySelectorAll(".cell");
+  cell.forEach((cell) => {
+    cell.style.background = "white";
+  });
 });

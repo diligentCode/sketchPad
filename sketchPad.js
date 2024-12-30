@@ -7,6 +7,7 @@ const sketchCanvas = document.querySelector(".sketch-canvas");
 const colorInput = document.querySelector("#color-input");
 const clearGrid = document.querySelector(".clear");
 const rainbow = document.querySelector(".rainbow");
+const reset = document.querySelector(".reset");
 
 //Handling input event
 inputGrid.addEventListener("keydown", (e) => {
@@ -61,6 +62,9 @@ function createGrid(gridSize) {
 //Check for rainbow effect
 
 colorInput.addEventListener("input", () => {
+  if (isRainbow) {
+    isRainbow = !isRainbow;
+  }
   backgroundColor = colorInput.value;
 });
 
@@ -85,3 +89,9 @@ function randomColor() {
   }
   return "rgb(" + color.join(", ") + ")";
 }
+
+//Reset the sketch-canvas
+reset.addEventListener("click", () => {
+  inputGrid.value = "";
+  sketchCanvas.innerHTML = "";
+});

@@ -1,3 +1,5 @@
+let backgroundColor = "black";
+
 //Select buttons and input value
 const inputGrid = document.querySelector("#grid-input");
 const sketchCanvas = document.querySelector(".sketch-canvas");
@@ -17,7 +19,17 @@ inputGrid.addEventListener("keydown", (e) => {
 
     //clear previous grid
     sketchCanvas.innerHTML = "";
+
+    //Create a grid
     createGrid(gridSize);
+
+    //Adding hover effect to grid
+    const cell = document.querySelectorAll(".cell");
+    cell.forEach((cell) => {
+      cell.addEventListener("mouseover", () => {
+        cell.style.background = backgroundColor;
+      });
+    });
   }
 });
 

@@ -1,10 +1,12 @@
 let backgroundColor = "black";
+let isRainbow = false;
 
 //Select buttons and input value
 const inputGrid = document.querySelector("#grid-input");
 const sketchCanvas = document.querySelector(".sketch-canvas");
 const colorInput = document.querySelector("#color-input");
 const clearGrid = document.querySelector(".clear");
+const rainbow = document.querySelector(".rainbow");
 
 //Handling input event
 inputGrid.addEventListener("keydown", (e) => {
@@ -29,7 +31,12 @@ inputGrid.addEventListener("keydown", (e) => {
     const cell = document.querySelectorAll(".cell");
     cell.forEach((cell) => {
       cell.addEventListener("mouseover", () => {
-        cell.style.background = backgroundColor;
+        //Check if it is a rainbow effect or not
+        if (isRainbow) {
+          cell.style.background = randomColor();
+        } else {
+          cell.style.background = backgroundColor;
+        }
       });
     });
   }
@@ -51,6 +58,8 @@ function createGrid(gridSize) {
 }
 
 //Selecting a color
+//Check for rainbow effect
+
 colorInput.addEventListener("input", () => {
   backgroundColor = colorInput.value;
 });
@@ -62,3 +71,17 @@ clearGrid.addEventListener("click", () => {
     cell.style.background = "white";
   });
 });
+
+//Rainbow button event
+rainbow.addEventListener("click", () => {
+  isRainbow = !isRainbow;
+});
+
+//Random color generator
+function randomColor() {
+  let color = [];
+  for (let i = 0; i < 3; i++) {
+    color.push(Math.floor(Math.random() * 256));
+  }
+  return "rgb(" + color.join(", ") + ")";
+}
